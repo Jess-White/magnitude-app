@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-color: red;
+  background-color: #008B8B;
   color: white;
   padding-top: 20px;
 
@@ -8,7 +8,14 @@
 
 .dashboard {
   width: 100%;
-  background-color: blue;
+  background-color: #024B60;
   color: white;
   padding-top: 40px;
+}
+.logo {
+  margin-left: 30%;
+  height: 390px;
+  width: 480px;
+  
+
 }
