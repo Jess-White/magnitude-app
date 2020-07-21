@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Search from './Search';
 import StatesList from "./StatesList";
 import JSON_STATES from '../us-states-abbr-names.json';
+import GridMap from './GridMap';
 
 function Dashboard() {
 
@@ -45,6 +46,7 @@ function Dashboard() {
       <h1>This is our dashboard.</h1>
 
       <StatesList states={covidData.filter(filterQuery)} />
+      <GridMap />
     </div>
 
   )

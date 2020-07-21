@@ -5,7 +5,7 @@ function State({ state }) {
 
   const [hidden, setHidden] = useState(false);
 
-  const toggle = () => setHidden(!hidden)
+  const toggle = () => setHidden(!hidden);
 
   return (
     <div>
