@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Search from './Search';
 import StatesList from "./StatesList";
+import JSON_STATES from '../us-states-abbr-names.json';
 
 function Dashboard() {
 
@@ -10,12 +11,26 @@ function Dashboard() {
   function fetchData() {
     fetch("https://covidtracking.com/api/states")
       .then(response => response.json())
-      .then(response => setCovidData(response))
+      .then(response => {
+        const data = response.map(state => {
+          state.stateName = JSON_STATES[state.state];
+          return state;
+        })
+        setCovidData(data);
+      })
   }
 
   function handleChange(event) {
-    console.log(event.target.value);
     setQuery(event.target.value)
+  }
+
+  function filterQuery(state) {
+    const lowerCaseQuery = query.toLowerCase();
+    const lowerCaseStateName = state.stateName.toLowerCase();
+    const lowerCaseStateAbbreviation = state.state.toLowerCase();
+
+    return lowerCaseStateName.includes(lowerCaseQuery) 
+      || lowerCaseStateAbbreviation.includes(lowerCaseQuery)
   }
 
   useEffect(() => {
@@ -29,7 +44,7 @@ function Dashboard() {
 
       <h1>This is our dashboard.</h1>
 
-      <StatesList states={covidData.filter(state => state.state.includes(query))} />
+      <StatesList states={covidData.filter(filterQuery)} />
     </div>
 
   )

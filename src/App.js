@@ -2,14 +2,14 @@ import './App.css';
 import React from 'react';
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
-// import Search from './components/Search';
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div>
       <Header />
-      {/* <Search /> */}
       <Dashboard />
+      <Footer />
     </div>
   );
 }
