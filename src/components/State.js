@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+// Create onClick function that selects state when state is clicked and documentId into a variable
+
+// Add whatever to modal function/component that plugs in that documentId variable
+
 function State({ state }) {
+
+  // state = currentState;
 
   const [hidden, setHidden] = useState(false);
 
