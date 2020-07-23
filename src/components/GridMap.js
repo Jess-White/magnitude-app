@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StatesList from './StatesList';
 
 function GridMap({ state }) {
+
   const [hidden, setHidden] = useState(false);
 
   const toggle = () => setHidden(!hidden);
 
   return (
     <div className="grid-container">
-      <div id="AK" className="state">
-        <span onClick={() => setHidden(!hidden)}>AK</span>
-      </div>
+      <div id="AK" className="state" onClick={this.handleClick.bind(this, data)}>AK</div>
       <div id="ME" className="state">ME</div>
       <div id="VT" className="state">VT</div>
       <div id="NH" className="state">NH</div>
