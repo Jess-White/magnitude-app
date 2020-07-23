@@ -45,8 +45,7 @@ function Dashboard() {
 
       <h1>This is our dashboard.</h1>
 
-      <StatesList states={covidData.filter(filterQuery)} />
-      <GridMap />
+      <GridMap states={covidData.filter(filterQuery)}/>
     </div>
 
   )
