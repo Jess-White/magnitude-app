@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Search from './Search';
 import StatesList from "./StatesList";
+import State from "./State";
 import JSON_STATES from '../us-states-abbr-names.json';
 import GridMap from './GridMap';
 
