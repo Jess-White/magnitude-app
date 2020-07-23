@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import GridMap from './GridMap';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
