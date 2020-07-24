@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
-// import StatesList from './StatesList';
 import State from './State';
 
-function handleClick(e) {
-    console.log(e.target.id);
+function GridMap({ states }) {
+  const [ stateComponent, setStateComponent ] = useState(null);
+
+
+  function handleClick(e) {
+
+    const clickedState = e.target.id;
+
+    const matchedState = states.find((state) => state.state === clickedState)
+
+    if (matchedState) { 
+      setStateComponent(<State state={matchedState} key={matchedState.state} isOpen={true} />);
+    } else {
+      console.log("whoops!");
+    }
   }
-
-function GridMap({ state }) {
-  const [selectedState, selectState] = useState("");
-  const [hidden, setHidden] = useState(false);
-
-  const toggle = () => setHidden(!hidden);
 
   return (
     <div className="grid-container">
-      <div id="AK" className="state">
-        <span onClick={() => setHidden(!hidden)}>AK</span>
-      </div>
-      <div id="ME" onClick={handleClick}className="state">ME</div>
+
+      <div id="AK" onClick={handleClick} className="state">AK</div>
+      <div id="ME" onClick={handleClick} className="state">ME</div>
       <div id="VT" onClick={handleClick} className="state">VT</div>
       <div id="NH" onClick={handleClick} className="state">NH</div>
       <div id="WA" onClick={handleClick} className="state">WA</div>
@@ -68,7 +73,13 @@ function GridMap({ state }) {
       <div id="TX" onClick={handleClick} className="state">TX</div>
       <div id="FL" onClick={handleClick} className="state">FL</div>
       <div id="PR" onClick={handleClick} className="state">PR</div>
+
+      {stateComponent}
+
     </div>
+
+
+
   )
 }
 
