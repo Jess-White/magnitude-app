@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import StatesList from './StatesList';
+import State from './State';
 
 function GridMap({ state }) {
-  const [hidden, setHidden] = useState(false);
-
-  const toggle = () => setHidden(!hidden);
 
   return (
     <div className="grid-container">
