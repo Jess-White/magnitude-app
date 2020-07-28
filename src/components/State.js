@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import GridMap from './GridMap';
+// import GridMap from './GridMap';
+// import { Bar } from 'react-chartjs-2';
+import Chart from './Chart';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
 // Add whatever to modal function/component that plugs in that documentId variable
 
-function State({ state, isOpen }) {
+function State({ state, data, isOpen }) {
 
   // state = currentState;
 
@@ -16,7 +18,7 @@ function State({ state, isOpen }) {
 
   return (
     <div>
-      
+
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>{state.state}</ModalHeader>
         <ModalBody>
@@ -24,7 +26,7 @@ function State({ state, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults}</span></h4>
-          <img src="https://picsum.photos/200"></img>
+          <Chart data={data} />
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button>{' '} */}

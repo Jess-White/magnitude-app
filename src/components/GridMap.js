@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import State from './State';
+// import Chart from './Chart';
 
 function GridMap({ states }) {
-  const [ stateComponent, setStateComponent ] = useState(null);
-
+  const [stateComponent, setStateComponent] = useState(null);
 
   function handleClick(e) {
 
@@ -11,8 +11,9 @@ function GridMap({ states }) {
 
     const matchedState = states.find((state) => state.state === clickedState)
 
-    if (matchedState) { 
-      setStateComponent(<State state={matchedState} key={matchedState.state} isOpen={true} />);
+    if (matchedState) {
+      setStateComponent(<State data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
+      console.log(matchedState);
     } else {
       console.log("whoops!");
     }
@@ -75,6 +76,7 @@ function GridMap({ states }) {
       <div id="PR" onClick={handleClick} className="state">PR</div>
 
       {stateComponent}
+      {/* {chartComponent} */}
 
     </div>
 
