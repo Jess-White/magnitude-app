@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import GridMap from './GridMap';
 // import { Bar } from 'react-chartjs-2';
-import Chart from './Chart';
+import BarChart from './BarChart';
+import DoughnutChart from './DoughnutChart';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
@@ -26,7 +27,8 @@ function State({ state, data, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults}</span></h4>
-          <Chart data={data} />
+          <BarChart data={data} />
+          <DoughnutChart data={data} />
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button>{' '} */}
