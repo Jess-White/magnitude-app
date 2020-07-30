@@ -43,7 +43,6 @@ function Dashboard() {
     <div className="dashboard">
 
       <Search query={query} handleChange={handleChange} />
-      <StatesList states={covidData.filter(filterQuery)}/>
 
       <h1>This is our dashboard.</h1>
 

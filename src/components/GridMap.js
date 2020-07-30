@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import State from './State';
 // import Chart from './Chart';
 
@@ -18,6 +18,19 @@ function GridMap({ states }) {
       console.log("whoops!");
     }
   }
+
+  function fetchData() {
+    fetch("https://covidtracking.com/api/states")
+      .then(response => response.json())
+      .then(response => const historicData {
+        
+      })
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
 
   return (
     <div className="grid-container">
