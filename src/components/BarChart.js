@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-const Chart = ({ data }) => {
+const BarChart = ({ data }) => {
   const { positive, negative, totalTestResults } = data
 
   const dataStructure = {
@@ -16,11 +16,11 @@ const Chart = ({ data }) => {
       {
         data: Object.values(dataStructure),
         label: "COVID-19 Test Results",
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
+        backgroundColor: ["rgba(255,0,0,.5)","rgba(0,128,128,.5)", "rgba(112, 128, 144, .5)"],
+        borderColor: ["rgba(255,0,0)","rgba(0,128,128)", "rgba(112,128,144,.5)"],
         borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
+        hoverBackgroundColor: ["rgba(255,0,0)","rgba(0,128,128)", "rgba(112,128,144)"],
+        hoverBorderColor: ["rgba(255,0,0)","rgba(0,128,128)" ,"rgba(112,128,144)"]
       }
     ]
   }
@@ -32,4 +32,4 @@ const Chart = ({ data }) => {
   )
 }
 
-export default Chart;
+export default BarChart;
