@@ -4,6 +4,7 @@ import State from './State';
 
 function GridMap({ states }) {
   const [stateComponent, setStateComponent] = useState(null);
+  // const [historicData, setHistoricData] = useState([]);
 
   function handleClick(e) {
 
@@ -19,26 +20,16 @@ function GridMap({ states }) {
         .then(response => {
           const historicData = response;
           console.log(historicData);
-        });
-      setStateComponent(<State data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
-      console.log(matchedState);
+          // setHistoricData(historicData);
+          setStateComponent(<State historicData={historicData} data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
+        })
+      // console.log(historicData);
+
+      // console.log(matchedState);
     } else {
       console.log("whoops!");
     }
   }
-
-  function fetchData() {
-    fetch("https://covidtracking.com/api/states")
-      .then(response => response.json())
-      .then(response => const historicData {
-        
-      })
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
-
 
   return (
     <div className="grid-container">
