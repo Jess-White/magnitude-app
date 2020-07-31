@@ -31,7 +31,7 @@ function Dashboard() {
     const lowerCaseStateName = state.stateName.toLowerCase();
     const lowerCaseStateAbbreviation = state.state.toLowerCase();
 
-    return lowerCaseStateName.includes(lowerCaseQuery) 
+    return lowerCaseStateName.includes(lowerCaseQuery)
       || lowerCaseStateAbbreviation.includes(lowerCaseQuery)
   }
 
@@ -43,11 +43,11 @@ function Dashboard() {
     <div className="dashboard">
 
       <Search query={query} handleChange={handleChange} />
-      <StatesList states={covidData.filter(filterQuery)}/>
+      <StatesList states={covidData.filter(filterQuery)} />
 
       <h1>This is our dashboard.</h1>
 
-      <GridMap states={covidData.filter(filterQuery)}/>
+      <GridMap states={covidData.filter(filterQuery)} />
     </div>
 
   )

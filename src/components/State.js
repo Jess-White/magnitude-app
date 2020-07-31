@@ -4,18 +4,42 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import { Bar } from 'react-chartjs-2';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
+// import HistoricLineChart from './HistoricLineChart';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
 // Add whatever to modal function/component that plugs in that documentId variable
 
-function State({ state, data, isOpen }) {
+function State({ historicData, state, data, isOpen }) {
 
   // state = currentState;
 
   const [hidden, setHidden] = useState(isOpen);
 
   const toggle = () => setHidden(!hidden);
+
+  // let lineChartData = [];
+
+  // const newArray = this.historicData.map(datum => {
+  //   var datum_hash = {
+  //     x: datum.date,
+  //     y: datum.death
+  //   }
+  //   lineChartData.push(datum_hash);
+  // })
+
+  // console.log(lineChartData);
+  console.log(historicData);
+  // console.log(newArray);
+
+  //   data: [{
+  //     x: 10,
+  //     y: 20
+  // }, {
+  //     x: 15,
+  //     y: 10
+  // }]
+  // })
 
   return (
     <div>
@@ -29,6 +53,7 @@ function State({ state, data, isOpen }) {
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults}</span></h4>
           <BarChart data={data} />
           <DoughnutChart data={data} />
+          {/* <HistoricLineChart data={historicData} /> */}
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button>{' '} */}
