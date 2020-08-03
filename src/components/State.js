@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import GridMap from './GridMap';
 
-function State({ state }) {
+// Create onClick function that selects state when state is clicked and documentId into a variable
 
-  const [hidden, setHidden] = useState(false);
+// Add whatever to modal function/component that plugs in that documentId variable
+
+function State({ state, isOpen }) {
+
+  // state = currentState;
+
+  const [hidden, setHidden] = useState(isOpen);
 
   const toggle = () => setHidden(!hidden);
 
   return (
     <div>
-      <h4 onClick={() => setHidden(!hidden)}>{state.state}</h4>
+      
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>{state.state}</ModalHeader>
         <ModalBody>
