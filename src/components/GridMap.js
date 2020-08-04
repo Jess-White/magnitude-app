@@ -13,13 +13,10 @@ function GridMap({ states }) {
     const matchedState = states.find((state) => state.state === clickedState)
 
     if (matchedState) {
-      console.log("waffle");
-      console.log(matchedState);
       fetch(`https://covidtracking.com/api/v1/states/${matchedState.state.toLowerCase()}/daily.json`)
         .then(response => response.json())
         .then(response => {
           const historicData = response;
-          console.log(historicData);
           // setHistoricData(historicData);
           setStateComponent(<State historicData={historicData} data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
         })

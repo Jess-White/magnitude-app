@@ -28,8 +28,6 @@ function State({ historicData, state, data, isOpen }) {
   //   lineChartData.push(datum_hash);
   // })
 
-  // console.log(lineChartData);
-  console.log(historicData);
   // console.log(newArray);
 
   //   data: [{
