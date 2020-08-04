@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import { Bar } from 'react-chartjs-2';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
-// import HistoricLineChart from './HistoricLineChart';
+import HistoricLineChart from './HistoricLineChart';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
@@ -53,7 +53,7 @@ function State({ historicData, state, data, isOpen }) {
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults}</span></h4>
           <BarChart data={data} />
           <DoughnutChart data={data} />
-          {/* <HistoricLineChart data={historicData} /> */}
+          <HistoricLineChart data={historicData} />
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button>{' '} */}
