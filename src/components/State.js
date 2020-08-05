@@ -12,34 +12,9 @@ import HistoricLineChart from './HistoricLineChart';
 
 function State({ historicData, state, data, isOpen }) {
 
-  // state = currentState;
-
   const [hidden, setHidden] = useState(isOpen);
 
   const toggle = () => setHidden(!hidden);
-
-  // let lineChartData = [];
-
-  // const newArray = this.historicData.map(datum => {
-  //   var datum_hash = {
-  //     x: datum.date,
-  //     y: datum.death
-  //   }
-  //   lineChartData.push(datum_hash);
-  // })
-
-  // console.log(lineChartData);
-  console.log(historicData);
-  // console.log(newArray);
-
-  //   data: [{
-  //     x: 10,
-  //     y: 20
-  // }, {
-  //     x: 15,
-  //     y: 10
-  // }]
-  // })
 
   return (
     <div>

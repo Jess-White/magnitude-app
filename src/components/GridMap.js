@@ -4,7 +4,6 @@ import State from './State';
 
 function GridMap({ states }) {
   const [stateComponent, setStateComponent] = useState(null);
-  // const [historicData, setHistoricData] = useState([]);
 
   function handleClick(e) {
 
@@ -13,19 +12,13 @@ function GridMap({ states }) {
     const matchedState = states.find((state) => state.state === clickedState)
 
     if (matchedState) {
-      console.log("waffle");
-      console.log(matchedState);
       fetch(`https://covidtracking.com/api/v1/states/${matchedState.state.toLowerCase()}/daily.json`)
         .then(response => response.json())
         .then(response => {
           const historicData = response;
-          console.log(historicData);
-          // setHistoricData(historicData);
+          // console.log(historicData);
           setStateComponent(<State historicData={historicData} data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
         })
-      // console.log(historicData);
-
-      // console.log(matchedState);
     } else {
       console.log("whoops!");
     }
@@ -88,11 +81,8 @@ function GridMap({ states }) {
       <div id="PR" onClick={handleClick} className="state">PR</div>
 
       {stateComponent}
-      {/* {chartComponent} */}
 
     </div>
-
-
 
   )
 }
