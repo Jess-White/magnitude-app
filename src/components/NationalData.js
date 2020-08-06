@@ -33,7 +33,7 @@ function NationalData() {
 
   return (
     <div>
-      <button onClick={toggle}>National Data</button>
+      <button className="btn-default" onClick={toggle}>National Data</button>
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>National Data</ModalHeader>
         <ModalBody>

@@ -21,7 +21,7 @@ const HistoricLineChart = ({ data }) => {
       dates.push(`${mo}/${da}`)
       // dates.push(new Date(datum.date))
       deaths.push(datum.death)
-      deathIncreases.push(datum.deathIncrease)
+
       historicLineChartArray.push(datum_hash)
     } else if (index % 10 === 0 && datum.death > 0) {
       var datum_hash = {

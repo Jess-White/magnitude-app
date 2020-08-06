@@ -42,11 +42,11 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
+      <NationalData />
       <Search query={query} handleChange={handleChange} />
       <StatesList states={covidData.filter(filterQuery)} />
       <h1>This is our dashboard.</h1>
       <GridMap states={covidData.filter(filterQuery)} />
-      <NationalData />
     </div>
 
   )
