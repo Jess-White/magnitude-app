@@ -4,6 +4,7 @@ import StatesList from "./StatesList";
 // import State from "./State";
 import JSON_STATES from '../us-states-abbr-names.json';
 import GridMap from './GridMap';
+import NationalData from './NationalData';
 
 function Dashboard() {
 
@@ -41,13 +42,11 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-
       <Search query={query} handleChange={handleChange} />
       <StatesList states={covidData.filter(filterQuery)} />
-
       <h1>This is our dashboard.</h1>
-
       <GridMap states={covidData.filter(filterQuery)} />
+      <NationalData />
     </div>
 
   )
