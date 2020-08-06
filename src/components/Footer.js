@@ -8,7 +8,7 @@ function Footer() {
 
     <div className="footer">
       <div>
-        <h1 style={{color: "#248f72", }}> © Magnitude App, Inc.</h1>
+        <h1> © Magnitude App, Inc.</h1>
       </div>
 
     </div>
