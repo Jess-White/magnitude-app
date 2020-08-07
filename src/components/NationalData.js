@@ -5,6 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
 import HistoricLineChart from './HistoricLineChart';
+import HistoricDeathIncreases from './HistoricDeathIncreases';
 
 function NationalData() {
 
@@ -19,7 +20,7 @@ function NationalData() {
       .then(response => {
         const nationalCovidData = response;
         const todaysData = response.shift();
-        setNationalHistoricData(nationalCovidData);
+        setNationalHistoricData(nationalCovidData.reverse());
         setTodaysNationalData(todaysData);
       })
   }
@@ -40,10 +41,11 @@ function NationalData() {
           <h4>Number of deaths: <span style={{ color: "red" }}>{todaysNationalData.death}</span></h4>
           <h4>Positive results: <span style={{ color: "red" }}>{todaysNationalData.positive}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{todaysNationalData.negative}</span></h4>
-          <h4>Total test results: <span style={{ color: "red" }}>{todaysNationalData.totalTestResults}</span></h4> */}
+          <h4>Total test results: <span style={{ color: "red" }}>{todaysNationalData.totalTestResults}</span></h4>
           <BarChart data={todaysNationalData} />
           <DoughnutChart data={todaysNationalData} />
           <HistoricLineChart data={nationalHistoricData} />
+          <HistoricDeathIncreases data={nationalHistoricData} />
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>Cancel</Button>

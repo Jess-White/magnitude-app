@@ -116,9 +116,9 @@
 }
 
 .state:hover {
-  background: #f13e49;
-
+  background: #4dcece;
 }
+
 #ME {
   grid-column-start: 12;
 }
