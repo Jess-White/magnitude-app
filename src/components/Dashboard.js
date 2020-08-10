@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Search from './Search';
-import StatesList from "./StatesList";
+// import StatesList from "./StatesList";
 // import State from "./State";
 import JSON_STATES from '../us-states-abbr-names.json';
 import GridMap from './GridMap';
+import NationalData from './NationalData';
 
 function Dashboard() {
 
@@ -30,7 +31,7 @@ function Dashboard() {
     const lowerCaseQuery = query.toLowerCase();
     const lowerCaseStateName = state.stateName.toLowerCase();
     const lowerCaseStateAbbreviation = state.state.toLowerCase();
-
+    
     return lowerCaseStateName.includes(lowerCaseQuery)
       || lowerCaseStateAbbreviation.includes(lowerCaseQuery)
   }
@@ -41,12 +42,9 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-
+      <NationalData />
       <Search query={query} handleChange={handleChange} />
-      <StatesList states={covidData.filter(filterQuery)} />
-
-      <h1>This is our dashboard.</h1>
-
+      {/* <StatesList states={covidData.filter(filterQuery)} /> */}
       <GridMap states={covidData.filter(filterQuery)} />
     </div>
 

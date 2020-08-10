@@ -1,9 +1,19 @@
+
 .header {
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
   background-color: #008B8B;
   color: white;
-  padding-top: 20px;
+  /* padding-top: 20px; */
+}
 
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  /* height: 390px;
+  width: 480px; */
 }
 
 .dashboard {
@@ -11,12 +21,10 @@
   background-color: #024B60;
   color: white;
   padding-top: 40px;
+  padding: 20px;
 }
-.logo {
-  margin-left: 30%;
-  height: 390px;
-  width: 480px;
-}
+
+
 
 .footer {
   width: 100%;
@@ -30,6 +38,65 @@
   grid-gap: 1px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(9, 1fr);
+  padding: 20px;
+}
+
+.search {
+  text-align: center;
+  width: 100%;
+  border-radius: 15px;
+  padding: 5px 5px 5px 25px;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 15px;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-default {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background: #008B8B;
+  color: white;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 15px;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: background-color 0.5s ease;
+}
+
+.btn-default:hover {
+  background: #4dcece;
+
 }
 
 .state {
@@ -37,7 +104,8 @@
   font-size: 13px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  transition: background-color 0.5s ease;
 }
 
 .state:after {
@@ -45,6 +113,10 @@
   height: 0;
   padding-top: 100%;
   width: 1px;
+}
+
+.state:hover {
+  background: #4dcece;
 }
 
 #ME {
