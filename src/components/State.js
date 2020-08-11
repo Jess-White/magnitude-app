@@ -14,8 +14,16 @@ import HistoricDeathIncreases from './HistoricDeathIncreases';
 function State({ historicData, state, data, isOpen }) {
 
   const [hidden, setHidden] = useState(isOpen);
+  const [visibleBar, setVisibleBar] = useState(false);
+  const [visibleDoughnut, setVisibleDoughnut] = useState(false);
+  const [visibleHistoricLineChart, setVisibleHistoricLineChart] = useState(false);
+  const [visibleHistoricDeathIncrease, setVisibleHistoricDeathIncrease] = useState(false);
 
   const toggle = () => setHidden(!hidden);
+  const toggleBar = () => setVisibleBar(!visibleBar);
+  const toggleDoughnut = () => setVisibleDoughnut(!visibleDoughnut);
+  const toggleHistoricLineChart = () => setVisibleHistoricLineChart(!visibleHistoricLineChart);
+  const toggleHistoricDeathIncrease = () => setVisibleHistoricDeathIncrease(!visibleHistoricDeathIncrease);
 
   return (
     <div>
@@ -23,18 +31,34 @@ function State({ historicData, state, data, isOpen }) {
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>{state.state}</ModalHeader>
         <ModalBody>
-          <h4>Number of deaths: <span style={{ color: "red" }}>{state.death}</span></h4>
-          <h4>Positive results: <span style={{ color: "red" }}>{state.positive}</span></h4>
-          <h4>Negative results: <span style={{ color: "red" }}>{state.negative}</span></h4>
-          <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults}</span></h4>
-          <BarChart data={data} />
-          <DoughnutChart data={data} />
-          <HistoricLineChart data={historicData} />
-          <HistoricDeathIncreases data={historicData} />
+          <h4>Number of deaths: <span style={{ color: "red" }}>{state.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          {visibleBar ? (
+            <BarChart data={data} />
+          ) : (null)
+          }
+          {visibleDoughnut ? (
+            <DoughnutChart data={data} />
+          ) : (null)
+          }
+          {visibleHistoricLineChart ? (
+            <HistoricLineChart data={historicData} />
+          ) : (null)
+          }
+          {visibleHistoricDeathIncrease ? (
+            <HistoricDeathIncreases data={historicData} />
+          ) : (null)
+          }
+          <button onClick={toggleBar}>Test Results Bar Chart</button>
+          <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
+          <button onClick={toggleHistoricLineChart}>Deaths</button>
+          <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button> */}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button color="secondary" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
 
