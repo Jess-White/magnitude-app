@@ -26,7 +26,7 @@ function NationalData() {
   }
 
   // console.log(nationalHistoricData);
-  // console.log(todaysNationalData);
+  // console.log(todaysNationalData.death);
 
   useEffect(() => {
     fetchHistoricData()

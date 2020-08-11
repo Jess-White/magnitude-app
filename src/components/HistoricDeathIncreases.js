@@ -43,7 +43,7 @@ const HistoricLineChart = ({ data }) => {
     datasets: [
       {
         data: deathIncreases,
-        label: "COVID-19 Deaths",
+        label: "COVID-19 Death Increase/Decrease",
         backgroundColor: ["rgba(255,0,0,.5)", "rgba(0,128,128,.5)", "rgba(112, 128, 144, .5)"],
         borderColor: ["rgba(255,0,0)", "rgba(0,128,128)", "rgba(112,128,144,.5)"],
         borderWidth: 1,
