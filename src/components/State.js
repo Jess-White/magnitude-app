@@ -35,6 +35,10 @@ function State({ historicData, state, data, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          <button onClick={toggleBar}>Test Results Bar Chart</button>
+          <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
+          <button onClick={toggleHistoricLineChart}>Deaths</button>
+          <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
           {visibleBar ? (
             <BarChart data={data} />
           ) : (null)
@@ -51,10 +55,7 @@ function State({ historicData, state, data, isOpen }) {
             <HistoricDeathIncreases data={historicData} />
           ) : (null)
           }
-          <button onClick={toggleBar}>Test Results Bar Chart</button>
-          <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
-          <button onClick={toggleHistoricLineChart}>Deaths</button>
-          <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
+          
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button> */}
