@@ -9,6 +9,7 @@ function Header() {
         <h1>
           <img className="logo" src="./Magnitude.png" alt="" />
         </h1>
+        <h3 align='center'>Track Covid Results</h3>
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ function Footer() {
 
     <div className="footer">
       <div>
-        <h1> © Magnitude App, Inc.</h1>
+        <h4> © Magnitude App, Inc.</h4>
       </div>
 
     </div>
