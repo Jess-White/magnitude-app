@@ -35,16 +35,28 @@ function State({ historicData, state, data, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
-          <button onClick={toggleBar}>Test Results Bar Chart</button>
+          <button onClick={toggleBar} >Test Results Bar Chart</button>
           <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
           <button onClick={toggleHistoricLineChart}>Deaths</button>
           <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
           {visibleBar ? (
-            <BarChart data={data} />
+            <BarChart data={data} 
+              // toggleBar={ !visibleBar ? setVisibleBar() : null }
+              toggleDoughnut={ visibleDoughnut ? setVisibleDoughnut() : null}
+              toggleHistoricLineChart={visibleHistoricLineChart ? setVisibleHistoricLineChart() : null}
+              toggleHistoricDeathIncrease={ visibleHistoricDeathIncrease ? setVisibleHistoricDeathIncrease() : null}
+            />
+            
           ) : (null)
           }
           {visibleDoughnut ? (
-            <DoughnutChart data={data} />
+            <DoughnutChart data={data} 
+              
+              // toggleDoughnut={ !visibleDoughnut ? setVisibleDoughnut() : null }
+              toggleBar={ visibleBar ? setVisibleBar() : null }
+              toggleHistoricLineChart={visibleHistoricLineChart ? setVisibleHistoricLineChart() : null}
+              toggleHistoricDeathIncrease={ visibleHistoricDeathIncrease ? setVisibleHistoricDeathIncrease() : null}
+            />
           ) : (null)
           }
           {visibleHistoricLineChart ? (
