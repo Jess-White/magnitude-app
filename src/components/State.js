@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import GridMap from './GridMap';
-// import { Bar } from 'react-chartjs-2';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
 import HistoricLineChart from './HistoricLineChart';
@@ -20,17 +18,13 @@ function State({ historicData, state, data, isOpen }) {
   const [visibleHistoricDeathIncrease, setVisibleHistoricDeathIncrease] = useState(false);
 
   const toggle = () => setHidden(!hidden);
-  const toggleBar = () => setVisibleBar(!visibleBar);
-  const toggleDoughnut = () => setVisibleDoughnut(!visibleDoughnut);
-  const toggleHistoricLineChart = () => setVisibleHistoricLineChart(!visibleHistoricLineChart);
-  const toggleHistoricDeathIncrease = () => setVisibleHistoricDeathIncrease(!visibleHistoricDeathIncrease);
 
   const barFunction = () => {
     setVisibleBar(true);
     setVisibleDoughnut(false);
     setVisibleHistoricLineChart(false);
     setVisibleHistoricDeathIncrease(false);
-    console.log("word")
+    // console.log("word")
   }
 
   const donughtFunction = () => {
@@ -38,7 +32,7 @@ function State({ historicData, state, data, isOpen }) {
     setVisibleDoughnut(true);
     setVisibleHistoricLineChart(false);
     setVisibleHistoricDeathIncrease(false);
-    console.log("donu")
+    // console.log("donu")
   }
 
   const historyFunction = () => {
@@ -46,7 +40,7 @@ function State({ historicData, state, data, isOpen }) {
     setVisibleDoughnut(false);
     setVisibleHistoricLineChart(true);
     setVisibleHistoricDeathIncrease(false);
-    console.log("history")
+    // console.log("history")
   }
 
   const deathFunction = () => {
@@ -54,13 +48,13 @@ function State({ historicData, state, data, isOpen }) {
     setVisibleDoughnut(false);
     setVisibleHistoricLineChart(false);
     setVisibleHistoricDeathIncrease(true);
-    console.log("death")
+    // console.log("death")
   }
 
-  console.log(visibleBar, "bar")
-  console.log(visibleDoughnut, "doughnut")
-  console.log(visibleHistoricLineChart, "linechart")
-  console.log(visibleHistoricDeathIncrease, "death")
+  // console.log(visibleBar, "bar")
+  // console.log(visibleDoughnut, "doughnut")
+  // console.log(visibleHistoricLineChart, "linechart")
+  // console.log(visibleHistoricDeathIncrease, "death")
   return (
     <div>
 
@@ -75,23 +69,10 @@ function State({ historicData, state, data, isOpen }) {
           <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
           <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
           <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
-          {visibleBar ? (
-            <BarChart data={data} />
-
-          ) : (null)
-          }
-          {visibleDoughnut ? (
-            <DoughnutChart data={data} />
-          ) : (null)
-          }
-          {visibleHistoricLineChart ? (
-            <HistoricLineChart data={historicData} />
-          ) : (null)
-          }
-          {visibleHistoricDeathIncrease ? (
-            <HistoricDeathIncreases data={historicData} />
-          ) : (null)
-          }
+          {visibleBar ? (<BarChart data={data} />) : (null)}
+          {visibleDoughnut ? (<DoughnutChart data={data} />) : (null)}
+          {visibleHistoricLineChart ? (<HistoricLineChart data={historicData} />) : (null)}
+          {visibleHistoricDeathIncrease ? (<HistoricDeathIncreases data={historicData} />) : (null)}
 
         </ModalBody>
         <ModalFooter>
