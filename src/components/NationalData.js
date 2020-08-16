@@ -30,11 +30,37 @@ function NationalData() {
   const [visibleHistoricLineChart, setVisibleHistoricLineChart] = useState(false);
   const [visibleHistoricDeathIncrease, setVisibleHistoricDeathIncrease] = useState(false);
 
-  const toggleBar = () => setVisibleBar(!visibleBar);
-  const toggleDoughnut = () => setVisibleDoughnut(!visibleDoughnut);
-  const toggleHistoricLineChart = () => setVisibleHistoricLineChart(!visibleHistoricLineChart);
-  const toggleHistoricDeathIncrease = () => setVisibleHistoricDeathIncrease(!visibleHistoricDeathIncrease);
+  const barFunction = () => {
+    setVisibleBar(true);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("word")
+  }
 
+  const donughtFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(true);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("donu")
+  }
+
+  const historyFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(true);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("history")
+  }
+
+  const deathFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(true);
+    // console.log("death")
+  }
 
   useEffect(() => {
     fetchHistoricData()
@@ -46,15 +72,15 @@ function NationalData() {
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>Daily National Data</ModalHeader>
         <ModalBody>
-          
-          <h4>Number of deaths: <span style={{ color: "red" }}>{ todaysNationalData.death ? todaysNationalData.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
-          <h4>Positive results: <span style={{ color: "red" }}>{ todaysNationalData.positive ? todaysNationalData.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
-          <h4>Negative results: <span style={{ color: "red" }}>{ todaysNationalData.negative ? todaysNationalData.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
-          <h4>Total test results: <span style={{ color: "red" }}>{ todaysNationalData.totalTestResults ? todaysNationalData.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
-          <button onClick={toggleBar}>Test Results Bar Chart</button>
-          <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
-          <button onClick={toggleHistoricLineChart}>Deaths</button>
-          <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
+
+          <h4>Number of deaths: <span style={{ color: "red" }}>{todaysNationalData.death ? todaysNationalData.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
+          <h4>Positive results: <span style={{ color: "red" }}>{todaysNationalData.positive ? todaysNationalData.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
+          <h4>Negative results: <span style={{ color: "red" }}>{todaysNationalData.negative ? todaysNationalData.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
+          <h4>Total test results: <span style={{ color: "red" }}>{todaysNationalData.totalTestResults ? todaysNationalData.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
+          <button type="button" className="btn btn-secondary" onClick={barFunction}>Test Results Bar Chart</button>
+          <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
+          <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
+          <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
           {visibleBar ? (
             <BarChart data={todaysNationalData} />
           ) : (null)
@@ -71,7 +97,7 @@ function NationalData() {
             <HistoricDeathIncreases data={nationalHistoricData} />
           ) : (null)
           }
-          
+
 
         </ModalBody>
         <ModalFooter>

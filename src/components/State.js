@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import GridMap from './GridMap';
-// import { Bar } from 'react-chartjs-2';
 import BarChart from './BarChart';
 import DoughnutChart from './DoughnutChart';
 import HistoricLineChart from './HistoricLineChart';
@@ -20,11 +18,43 @@ function State({ historicData, state, data, isOpen }) {
   const [visibleHistoricDeathIncrease, setVisibleHistoricDeathIncrease] = useState(false);
 
   const toggle = () => setHidden(!hidden);
-  const toggleBar = () => setVisibleBar(!visibleBar);
-  const toggleDoughnut = () => setVisibleDoughnut(!visibleDoughnut);
-  const toggleHistoricLineChart = () => setVisibleHistoricLineChart(!visibleHistoricLineChart);
-  const toggleHistoricDeathIncrease = () => setVisibleHistoricDeathIncrease(!visibleHistoricDeathIncrease);
 
+  const barFunction = () => {
+    setVisibleBar(true);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("word")
+  }
+
+  const donughtFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(true);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("donu")
+  }
+
+  const historyFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(true);
+    setVisibleHistoricDeathIncrease(false);
+    // console.log("history")
+  }
+
+  const deathFunction = () => {
+    setVisibleBar(false);
+    setVisibleDoughnut(false);
+    setVisibleHistoricLineChart(false);
+    setVisibleHistoricDeathIncrease(true);
+    // console.log("death")
+  }
+
+  // console.log(visibleBar, "bar")
+  // console.log(visibleDoughnut, "doughnut")
+  // console.log(visibleHistoricLineChart, "linechart")
+  // console.log(visibleHistoricDeathIncrease, "death")
   return (
     <div>
 
@@ -35,39 +65,15 @@ function State({ historicData, state, data, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
-          <button onClick={toggleBar} >Test Results Bar Chart</button>
-          <button onClick={toggleDoughnut}>Test Results Pie Chart</button>
-          <button onClick={toggleHistoricLineChart}>Deaths</button>
-          <button onClick={toggleHistoricDeathIncrease}>Death Increase/Decrease</button>
-          {visibleBar ? (
-            <BarChart data={data} 
-              // toggleBar={ !visibleBar ? setVisibleBar() : null }
-              toggleDoughnut={ visibleDoughnut ? setVisibleDoughnut() : null}
-              toggleHistoricLineChart={visibleHistoricLineChart ? setVisibleHistoricLineChart() : null}
-              toggleHistoricDeathIncrease={ visibleHistoricDeathIncrease ? setVisibleHistoricDeathIncrease() : null}
-            />
-            
-          ) : (null)
-          }
-          {visibleDoughnut ? (
-            <DoughnutChart data={data} 
-              
-              // toggleDoughnut={ !visibleDoughnut ? setVisibleDoughnut() : null }
-              toggleBar={ visibleBar ? setVisibleBar() : null }
-              toggleHistoricLineChart={visibleHistoricLineChart ? setVisibleHistoricLineChart() : null}
-              toggleHistoricDeathIncrease={ visibleHistoricDeathIncrease ? setVisibleHistoricDeathIncrease() : null}
-            />
-          ) : (null)
-          }
-          {visibleHistoricLineChart ? (
-            <HistoricLineChart data={historicData} />
-          ) : (null)
-          }
-          {visibleHistoricDeathIncrease ? (
-            <HistoricDeathIncreases data={historicData} />
-          ) : (null)
-          }
-          
+          <button type="button" className="btn btn-secondary" onClick={barFunction} >Test Results Bar Chart</button>
+          <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
+          <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
+          <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
+          {visibleBar ? (<BarChart data={data} />) : (null)}
+          {visibleDoughnut ? (<DoughnutChart data={data} />) : (null)}
+          {visibleHistoricLineChart ? (<HistoricLineChart data={historicData} />) : (null)}
+          {visibleHistoricDeathIncrease ? (<HistoricDeathIncreases data={historicData} />) : (null)}
+
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button> */}
