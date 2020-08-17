@@ -81,7 +81,7 @@ function State({ historicData, state, data, isOpen }) {
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button> */}
-          <Button className="close-btn" color="secondary" onClick={toggle}>Close</Button>
+          <Button className="close-btn" color="danger" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
 
