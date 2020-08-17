@@ -35,6 +35,10 @@
   padding-top: 20px;
 }
 
+.flex-container {
+  display: flex;
+}
+
 .grid-container {
   display: grid;
   grid-gap: 1px;
