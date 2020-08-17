@@ -68,7 +68,7 @@ function NationalData() {
 
   return (
     <div>
-      <button className="btn-default" onClick={toggle}>National Data</button>
+      <button className="btn-default" style={{fontSize: "30px"}} onClick={toggle}>National Data</button>
       <Modal isOpen={hidden} toggle={toggle}>
 
         <ModalHeader className="modal-header" toggle={toggle}>Daily National Data</ModalHeader>
@@ -107,7 +107,7 @@ function NationalData() {
 
         </ModalBody>
         <ModalFooter>
-          <Button className="close-btn" color="secondary" onClick={toggle}>Cancel</Button>
+          <Button className="close-btn" color="danger" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
     </div>

@@ -8,7 +8,7 @@ const HistoricLineChart = ({ data }) => {
   const historicLineChartArray = []
   const dates = []
   const deaths = []
-  data.map((datum, index) => {
+  data.forEach((datum, index) => {
     if (index % 10 === 0 && datum.dateModified) {
       var datum_hash = {
         x: datum.dateModified,
@@ -24,14 +24,14 @@ const HistoricLineChart = ({ data }) => {
 
       historicLineChartArray.push(datum_hash)
     } else if (index % 10 === 0 && datum.death > 0) {
-      var datum_hash = {
+      datum_hash = {
         x: datum.dateChecked,
         y: datum.death
       }
-      var d = new Date(datum.dateChecked)
+      d = new Date(datum.dateChecked)
       var ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
-      var mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
-      var da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+      mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+      da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
       dates.push(`${mo}.${da}.${ye}`)
       // dates.push(new Date(datum.date))
       deaths.push(datum.death)
