@@ -15,7 +15,7 @@ function NationalData() {
   const toggle = () => setHidden(!hidden);
 
   function fetchHistoricData() {
-    fetch('https://covidtracking.com/api/v1/us/daily.json')
+    fetch('https://api.covidtracking.com/v1/us/daily.json')
       .then(response => response.json())
       .then(response => {
         const nationalCovidData = response;
