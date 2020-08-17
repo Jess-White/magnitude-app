@@ -15,7 +15,7 @@ function NationalData() {
   const toggle = () => setHidden(!hidden);
 
   function fetchHistoricData() {
-    fetch('https://api.covidtracking.com/api/v1/us/daily.json')
+    fetch('https://api.covidtracking.com/v1/us/daily.json')
       .then(response => response.json())
       .then(response => {
         const nationalCovidData = response;
@@ -70,17 +70,23 @@ function NationalData() {
     <div>
       <button className="btn-default" onClick={toggle}>National Data</button>
       <Modal isOpen={hidden} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Daily National Data</ModalHeader>
+
+        <ModalHeader modalClassName="modal-header" toggle={toggle}>Daily National Data</ModalHeader>
         <ModalBody>
 
           <h4>Number of deaths: <span style={{ color: "red" }}>{todaysNationalData.death ? todaysNationalData.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
           <h4>Positive results: <span style={{ color: "red" }}>{todaysNationalData.positive ? todaysNationalData.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{todaysNationalData.negative ? todaysNationalData.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{todaysNationalData.totalTestResults ? todaysNationalData.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
-          <button type="button" className="btn btn-secondary" onClick={barFunction}>Test Results Bar Chart</button>
-          <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
-          <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
-          <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
+          <div className="btn-group">
+            <button type="button" className="btn btn-secondary" onClick={barFunction}>Test Results Bar Chart</button>
+            <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
+            <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
+          </div>
+
           {visibleBar ? (
             <BarChart data={todaysNationalData} />
           ) : (null)
@@ -101,7 +107,7 @@ function NationalData() {
 
         </ModalBody>
         <ModalFooter>
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button className="close-btn" color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
       </Modal>
     </div>

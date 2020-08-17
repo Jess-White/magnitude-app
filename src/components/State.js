@@ -65,10 +65,14 @@ function State({ historicData, state, data, isOpen }) {
           <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
-          <button type="button" className="btn btn-secondary" onClick={barFunction} >Test Results Bar Chart</button>
-          <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
-          <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
-          <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
+          <div className="btn-group">
+            <button type="button" className="btn btn-secondary" onClick={barFunction} >Test Results Bar Chart</button>
+            <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn btn-secondary" onClick={historyFunction}>Deaths</button>
+            <button type="button" className="btn btn-secondary" onClick={deathFunction}>Death Increase/Decrease</button>
+          </div>
           {visibleBar ? (<BarChart data={data} />) : (null)}
           {visibleDoughnut ? (<DoughnutChart data={data} />) : (null)}
           {visibleHistoricLineChart ? (<HistoricLineChart data={historicData} />) : (null)}
@@ -77,7 +81,7 @@ function State({ historicData, state, data, isOpen }) {
         </ModalBody>
         <ModalFooter>
           {/* <Button color="primary" onClick={toggle}>Do Something</Button> */}
-          <Button color="secondary" onClick={toggle}>Close</Button>
+          <Button className="close-btn" color="secondary" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
 
