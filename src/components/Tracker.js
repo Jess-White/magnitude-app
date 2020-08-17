@@ -9,7 +9,8 @@ function Tracker() {
   useEffect(() => {
     async function getData() {
       const res = await fetch(
-        `https://covidtracking.com/api/states?state=${activeQuery.toLowerCase()}`
+        // `https://covidtracking.com/api/states?state=${activeQuery.toLowerCase()}`
+        `https://api.covidtracking.com/v1/states/${activeQuery.toLowerCase()}/current.json`
       );
       const data = await res.json();
       setStateData(data);
