@@ -31,7 +31,7 @@ function Dashboard() {
     const lowerCaseQuery = query.toLowerCase();
     const lowerCaseStateName = state.stateName.toLowerCase();
     const lowerCaseStateAbbreviation = state.state.toLowerCase();
-    
+
     return lowerCaseStateName.includes(lowerCaseQuery)
       || lowerCaseStateAbbreviation.includes(lowerCaseQuery)
   }
