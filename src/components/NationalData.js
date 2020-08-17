@@ -71,7 +71,7 @@ function NationalData() {
       <button className="btn-default" onClick={toggle}>National Data</button>
       <Modal isOpen={hidden} toggle={toggle}>
 
-        <ModalHeader modalClassName="modal-header" toggle={toggle}>Daily National Data</ModalHeader>
+        <ModalHeader className="modal-header" toggle={toggle}>Daily National Data</ModalHeader>
         <ModalBody>
 
           <h4>Number of deaths: <span style={{ color: "red" }}>{todaysNationalData.death ? todaysNationalData.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : 'error'}</span></h4>
