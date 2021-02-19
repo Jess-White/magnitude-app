@@ -7,7 +7,7 @@ import HistoricDeathIncreases from './HistoricDeathIncreases';
 
 // Create onClick function that selects state when state is clicked and documentId into a variable
 
-// Add whatever to modal function/component that plugs in that documentId variable
+// Add data to modal function/component that plugs in that documentId variable
 
 function State({ historicData, state, data, isOpen }) {
 
@@ -61,10 +61,26 @@ function State({ historicData, state, data, isOpen }) {
       <Modal isOpen={hidden} toggle={toggle}>
         <ModalHeader toggle={toggle}>{state.state}</ModalHeader>
         <ModalBody>
-          <h4>Number of deaths: <span style={{ color: "red" }}>{state.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
-          <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+          {state.death ?
+            <h4>Number of deaths: <span style={{ color: "red" }}>{state.death.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+            :
+            null
+          }
+          {state.positve ?
+            <h4>Positive results: <span style={{ color: "red" }}>{state.positive.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+            :
+            null
+          }
+          {state.negative ?
           <h4>Negative results: <span style={{ color: "red" }}>{state.negative.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+            :
+            null
+          }
+          {state.totalTestResults ?
           <h4>Total test results: <span style={{ color: "red" }}>{state.totalTestResults.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</span></h4>
+            :
+            null
+          }
           <div className="btn-group">
             <button type="button" className="btn btn-secondary" onClick={barFunction} >Test Results Bar Chart</button>
             <button type="button" className="btn btn-secondary" onClick={donughtFunction}>Test Results Pie Chart</button>

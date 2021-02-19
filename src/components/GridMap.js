@@ -20,16 +20,13 @@ function GridMap({ states }) {
           setStateComponent(<State historicData={historicData.reverse()} data={matchedState} state={matchedState} key={matchedState.state} isOpen={true} />);
         })
     } else {
-      console.log("whoops!");
+      // console.log("whoops!");
     }
   }
 
   function checkStateExists(currentState) {
     return states.find((state) => state.state === currentState)
   }
-
-
-
 
   return (
     <div className="flex-container">
