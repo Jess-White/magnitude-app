@@ -12,7 +12,7 @@ function Dashboard() {
   const [query, setQuery] = useState('')
 
   function fetchData() {
-    fetch("https://api.covidtracking.com/v1/states/current.json")
+    fetch("https://api.covidtracking.com/v2/states/current.json")
       .then(response => response.json())
       .then(response => {
         const data = response.map(state => {

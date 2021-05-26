@@ -10,6 +10,7 @@ function Header() {
           <img className="logo" src="./magnitude_logo_lrg.png" alt="" />
         </h1>
         <h3 align='center'>Track Covid Results</h3>
+        <h3 align='center' style={{color: 'red', background: 'white'}}>** COVID API is no longer tracking data as of March 2021! **</h3>
       </div>
     </div>
   )
